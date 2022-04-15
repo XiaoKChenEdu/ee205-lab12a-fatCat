@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Wiliki (8458d52c-7173-4133-85a8-8ac69fe1a1d8)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.zJiI0IlR6g" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
