@@ -116,24 +116,70 @@ void classWeight::setMaxWeight(float newMaxWeight) {
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// Conversion /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-float classWeight::fromKilogramToPound(float kilogram) noexcept {
-    return 0;
+float classWeight::fromKilogramToPound( float kilogram ) noexcept {
+
+    return kilogram / ::KILOS_IN_A_POUND ;
+
 }
 
-float classWeight::fromPoundToKilogram(float pound) noexcept {
-    return 0;
+float classWeight::fromPoundToKilogram( float pound ) noexcept {
+
+    return pound * ::KILOS_IN_A_POUND ;
+
 }
 
-float classWeight::fromSlugToPound(float slug) noexcept {
-    return 0;
+float classWeight::fromSlugToPound( float slug ) noexcept {
+
+    return slug / ::SLUGS_IN_A_POUND ;
+
 }
 
-float classWeight::fromPoundToSlug(float pound) noexcept {
-    return 0;
+float classWeight::fromPoundToSlug( float pound ) noexcept {
+
+    return pound * ::SLUGS_IN_A_POUND ;
+
 }
 
-float classWeight::convertWeight(float fromWeight, classWeight::UnitOfWeight fromUnit, classWeight::UnitOfWeight toUnit) noexcept {
-    return 0;
+float classWeight::convertWeight( float fromWeight, classWeight::UnitOfWeight fromUnit, classWeight::UnitOfWeight toUnit ) noexcept {
+
+    float weightToConvert ;
+
+    switch( fromUnit ) {
+
+        case POUND : weightToConvert = fromWeight ;
+        break;
+
+        case KILO  : weightToConvert = fromKilogramToPound( fromWeight ) ;
+        break;
+
+        case SLUG  : weightToConvert = fromSlugToPound( fromWeight ) ;
+        break;
+
+        default    : cout << "Please enter a proper unit to convert form." << endl ;
+        assert( false ) ;
+
+    }
+
+    float convertedWeight;
+
+    switch( toUnit ) {
+
+        case POUND : convertedWeight = weightToConvert ;
+        break;
+
+        case KILO  : convertedWeight = fromPoundToKilogram( weightToConvert ) ;
+        break;
+
+        case SLUG  : convertedWeight = fromSlugToPound( weightToConvert ) ;
+        break;
+
+        default    : cout << "Please enter a proper unit to convert to." << endl ;
+        assert( false );
+
+    }
+
+    return convertedWeight ;
+
 }
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// Conversion /////////////////////////////////////
@@ -173,7 +219,7 @@ bool classWeight::operator<(const classWeight &rhs_Weight) const {
 }
 
 classWeight &classWeight::operator+=(float rhs_addToWeight) {
-    return <#initializer#>;
+
 }
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// Operators ///////////////////////////////////////
