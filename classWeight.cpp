@@ -190,12 +190,55 @@ float classWeight::convertWeight( float fromWeight, classWeight::UnitOfWeight fr
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// Validation & Print //////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-bool classWeight::isWeightValid(float checkWeight) const noexcept {
-    return false;
+bool classWeight::isWeightValid( float checkWeight ) const noexcept {
+
+    if ( checkWeight <= 0 ) {
+
+        cout << "Your Animal Weight [" << checkWeight << "] can't be <= 0" << endl;
+        return false;
+
+    }
+
+    if ( bWeightHasMax ) {
+
+        if ( checkWeight > maxWeight ) {
+
+            cout << "Your Animal Weight [" << checkWeight << "] is greater than it's maxWeight [" << maxWeight << "], Please change it." << endl;
+            return false;
+
+        }
+
+    }
+
+    return true;
+
 }
 
 bool classWeight::validate() const noexcept {
-    return false;
+
+    if ( bWeightHasMax ) {
+
+        if ( maxWeight <= 0 ) {
+
+            cout << "Your Animal maxWeight is <= 0, Please change it." << endl;
+            return false;
+
+        }
+
+    }
+
+    if ( bWeightIsKnown ) {
+
+        if ( !isWeightValid( weight ) ) {
+
+            return false;
+
+        }
+
+    }
+
+    return true;
+
 }
 
 void classWeight::print() const noexcept {
