@@ -27,31 +27,47 @@ const string SLUG_LABEL  = "Slug"  ;
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// Constructors ////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-classWeight::classWeight() {
+classWeight::classWeight() = default;
+
+classWeight::classWeight( float newWeight ) {
+
+    setWeight( newWeight );
+    assert( validate() );
 
 }
 
-classWeight::classWeight(float newWeight) {
+classWeight::classWeight( classWeight::UnitOfWeight newUnitOfWeight ) noexcept {
+
+    unitOfWeight = newUnitOfWeight;
 
 }
 
-classWeight::classWeight(classWeight::UnitOfWeight newUnitOfWeight) noexcept {
+classWeight::classWeight( float newWeight, classWeight::UnitOfWeight newUnitOfWeight ) : classWeight( newUnitOfWeight ) {
+
+    setWeight( newWeight, newUnitOfWeight );
+    assert( validate() );
 
 }
 
-classWeight::classWeight(float newWeight, classWeight::UnitOfWeight newUnitOfWeight) {
+classWeight::classWeight( float newWeight, float newMaxWeight ) {
+
+    setWeight( newWeight );
+    setMaxWeight( newMaxWeight );
+    assert( validate() );
 
 }
 
-classWeight::classWeight(float newWeight, float newMaxWeight) {
+classWeight::classWeight( classWeight::UnitOfWeight newUnitOfWeight, float newMaxWeight ) : classWeight( newUnitOfWeight ) {
+
+    setMaxWeight( newMaxWeight );
+    assert( validate() );
 
 }
 
-classWeight::classWeight(classWeight::UnitOfWeight newUnitOfWeight, float newMaxWeight) {
+classWeight::classWeight( float newWeight, classWeight::UnitOfWeight newUnitOfWeight, float newMaxWeight ) : classWeight( newUnitOfWeight, newMaxWeight ) {
 
-}
-
-classWeight::classWeight(float newWeight, classWeight::UnitOfWeight newUnitOfWeight, float newMaxWeight) {
+    setWeight( newWeight );
+    assert( validate() );
 
 }
 //////////////////////////////////////////////////////////////////////////////////////
