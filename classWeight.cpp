@@ -308,8 +308,23 @@ bool classWeight::validate() const noexcept {
     return true;
 
 }
+#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
 
 void classWeight::print() const noexcept {
+
+    assert( validate() ) ;
+
+    cout << setw(80) << setfill( '=' ) << "" << endl ;
+    cout << setfill( ' ' ) ;
+    cout << left ;
+    cout << boolalpha ;
+
+    FORMAT_LINE( "classWeight", "this"           )  << this            << endl ;
+    FORMAT_LINE( "classWeight", "bWeightIsKnown" )  << bWeightIsKnown  << endl ;
+    FORMAT_LINE( "classWeight", "weight"         )  << weight          << endl ;
+    FORMAT_LINE( "classWeight", "unitOfWeight"   )  << unitOfWeight    << endl ;
+    FORMAT_LINE( "classWeight", "bWeightHasMax"  )  << bWeightHasMax   << endl ;
+    FORMAT_LINE( "classWeight", "maxWeight"      )  << maxWeight       << endl ;
 
 }
 //////////////////////////////////////////////////////////////////////////////////////
