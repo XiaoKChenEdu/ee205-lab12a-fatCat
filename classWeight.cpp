@@ -139,16 +139,40 @@ classWeight::UnitOfWeight classWeight::getWeightUnit() const noexcept {
 //////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////// Setters ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-void classWeight::setWeight(float newWeight) {
+void classWeight::setWeight( float newWeight ) {
+
+    if ( !isWeightValid( newWeight ) ) {
+
+        throw out_of_range( "newWight is <= 0 || > maxWeight" );
+
+    }
+
+    weight         = newWeight ;
+    bWeightIsKnown = true      ;
+
+    assert( validate() );
 
 }
 
-void classWeight::setWeight(float newWeight, classWeight::UnitOfWeight weightUnits) {
+void classWeight::setWeight( float newWeight, classWeight::UnitOfWeight weightUnits ) {
+
+    setWeight( convertWeight( newWeight, weightUnits, unitOfWeight ) );
 
 }
 
 //This is a private member function.
-void classWeight::setMaxWeight(float newMaxWeight) {
+void classWeight::setMaxWeight( float newMaxWeight ) {
+
+    if ( !bWeightHasMax ) {
+
+        maxWeight     = newMaxWeight ;
+        bWeightHasMax = true         ;
+
+    } else {
+
+        cout << "Your Animal's maxWeight is already defined." << endl;
+
+    }
 
 }
 //////////////////////////////////////////////////////////////////////////////////////
