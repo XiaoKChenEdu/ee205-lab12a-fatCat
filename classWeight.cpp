@@ -80,27 +80,55 @@ classWeight::classWeight( float newWeight, classWeight::UnitOfWeight newUnitOfWe
 ////////////////////////////////////// Getters ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
 bool classWeight::isWeightKnow() const noexcept {
-    return false;
+
+    return bWeightIsKnown;
+
 }
 
 bool classWeight::hasMaxWeight() const noexcept {
-    return false;
+
+    return bWeightIsKnown;
+
 }
 
 float classWeight::getWeight() const noexcept {
-    return 0;
+
+    if ( bWeightIsKnown ) {
+
+        return weight;
+
+    } else {
+
+        return ::UNKNOWN_WEIGHT;
+
+    }
+
 }
 
-float classWeight::getWeight(classWeight::UnitOfWeight weightUnits) const noexcept {
-    return 0;
+float classWeight::getWeight( classWeight::UnitOfWeight weightUnits ) const noexcept {
+
+    return convertWeight( weight, unitOfWeight, weightUnits );
+
 }
 
 float classWeight::getMaxWeight() noexcept {
-    return 0;
+
+    if ( bWeightHasMax ) {
+
+        return maxWeight;
+
+    } else {
+
+        return ::UNKNOWN_WEIGHT;
+
+    }
+
 }
 
 classWeight::UnitOfWeight classWeight::getWeightUnit() const noexcept {
-    return classWeight::POUND;
+
+    return unitOfWeight;
+
 }
 //////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////// Getters ///////////////////////////////////////
