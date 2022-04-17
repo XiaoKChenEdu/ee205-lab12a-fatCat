@@ -308,13 +308,13 @@ bool classWeight::validate() const noexcept {
     return true;
 
 }
-#define FORMAT_LINE( className, member ) cout << setw(8) << (className) << setw(20) << (member) << setw(52)
+#define FORMAT_LINE( className, member ) cout << setw( 30 ) << ( className ) << setw( 30 ) << ( member ) << setw( 52 )
 
 void classWeight::print() const noexcept {
 
     assert( validate() ) ;
 
-    cout << setw(80) << setfill( '=' ) << "" << endl ;
+    cout << setw( 80 ) << setfill( '=' ) << "" << endl ;
     cout << setfill( ' ' ) ;
     cout << left ;
     cout << boolalpha ;
@@ -354,7 +354,27 @@ bool classWeight::operator<( const classWeight &rhs_WeightInput ) const {
 
 }
 
-classWeight &classWeight::operator+=(float rhs_addToWeight) {
+classWeight &classWeight::operator+=( float rhs_addToWeight ) {
+
+    if ( !bWeightIsKnown ) {
+
+        throw out_of_range( "Your Animal's Weight Is Unknown." );
+
+    }
+
+    if ( bWeightHasMax ) {
+
+        if ( ( weight + rhs_addToWeight ) > maxWeight ) {
+
+            throw out_of_range( "You Cannot Add [rhs_addToWeight] To Your Animal As It Will Exceed It's maxWeight." );
+
+        }
+
+    }
+
+    setWeight( weight + rhs_addToWeight );
+
+    return *this;
 
 }
 

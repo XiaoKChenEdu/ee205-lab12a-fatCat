@@ -17,6 +17,8 @@
 #include <iomanip>
 #include <ostream>
 
+#define NL cout << endl;
+
 using namespace std;
 
 
@@ -51,12 +53,12 @@ class classWeight {
         //////////// Constructors ////////////
         classWeight();
 
-        classWeight( float newWeight               )          ;
+        classWeight( float        newWeight        )          ;
         classWeight( UnitOfWeight newUnitOfWeight  ) noexcept ;
         classWeight( float        newWeight,
                      UnitOfWeight newUnitOfWeight  )          ;
-        classWeight( float newWeight,
-                     float newMaxWeight            )          ;
+        classWeight( float        newWeight,
+                     float        newMaxWeight     )          ;
         classWeight( UnitOfWeight newUnitOfWeight,
                      float        newMaxWeight     )          ;
         classWeight( float        newWeight,

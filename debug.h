@@ -14,3 +14,5 @@
 
 
 void checkEqualityOperator();
+void checkLessThanOperator();
+void checkAddToOperator();

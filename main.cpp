@@ -13,7 +13,6 @@
 #include "classWeight.h"
 #include "debug.h"
 
-#define NL cout << endl;
 #define DEBUG
 
 
@@ -32,7 +31,11 @@ int main() {
         cout << "---- Debugging Starts Here ----" << endl;
         NL
 
-        checkEqualityOperator();
+        checkEqualityOperator() ;
+        NL NL
+        checkLessThanOperator() ;
+        NL NL
+        checkAddToOperator   () ;
 
         NL
         cout << "----- Debugging Ends Here -----" << endl;
