@@ -15,6 +15,7 @@
 #include <cassert>
 #include <stdexcept>
 #include <iomanip>
+#include <ostream>
 
 using namespace std;
 
@@ -65,12 +66,12 @@ class classWeight {
 
     public:
         //////////// Getters ////////////
-        bool isWeightKnow() const noexcept ;
-        bool hasMaxWeight() const noexcept ;
+        bool isWeightKnown() const noexcept ;
+        bool hasMaxWeight () const noexcept ;
 
         float getWeight    ()                           const noexcept ;
         float getWeight    ( UnitOfWeight weightUnits ) const noexcept ;
-        float getMaxWeight ()                                 noexcept ;
+        float getMaxWeight ()                           const noexcept ;
 
         UnitOfWeight getWeightUnit() const noexcept ;
         //////////// Getters ////////////
@@ -114,3 +115,10 @@ class classWeight {
         //////////// Operators ////////////
 
 };
+
+
+//////////////////// Operators ////////////////////
+std::ostream& operator<<( std::ostream& lhs_stream, classWeight::UnitOfWeight rhs_UnitOfWeight );
+
+
+//////////////////// Operators ////////////////////

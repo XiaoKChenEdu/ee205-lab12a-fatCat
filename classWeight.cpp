@@ -14,13 +14,13 @@
 
 
 /////////////// Public Attributes ///////////////
-const float UNKNOWN_WEIGHT   = -1       ;
-const float KILOS_IN_A_POUND = 0.453592 ;
-const float SLUGS_IN_A_POUND = 0.031081 ;
+const float classWeight::UNKNOWN_WEIGHT   = -1       ;
+const float classWeight::KILOS_IN_A_POUND = 0.453592 ;
+const float classWeight::SLUGS_IN_A_POUND = 0.031081 ;
 
-const string POUND_LABEL = "Pound" ;
-const string KILO_LABEL  = "Kilo"  ;
-const string SLUG_LABEL  = "Slug"  ;
+const string classWeight::POUND_LABEL = "Pound" ;
+const string classWeight::KILO_LABEL  = "Kilo"  ;
+const string classWeight::SLUG_LABEL  = "Slug"  ;
 /////////////// Public Attributes ///////////////
 
 
@@ -79,7 +79,7 @@ classWeight::classWeight( float newWeight, classWeight::UnitOfWeight newUnitOfWe
 //////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////// Getters ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-bool classWeight::isWeightKnow() const noexcept {
+bool classWeight::isWeightKnown() const noexcept {
 
     return bWeightIsKnown;
 
@@ -99,7 +99,7 @@ float classWeight::getWeight() const noexcept {
 
     } else {
 
-        return ::UNKNOWN_WEIGHT;
+        return UNKNOWN_WEIGHT;
 
     }
 
@@ -111,7 +111,7 @@ float classWeight::getWeight( classWeight::UnitOfWeight weightUnits ) const noex
 
 }
 
-float classWeight::getMaxWeight() noexcept {
+float classWeight::getMaxWeight() const noexcept {
 
     if ( bWeightHasMax ) {
 
@@ -119,7 +119,7 @@ float classWeight::getMaxWeight() noexcept {
 
     } else {
 
-        return ::UNKNOWN_WEIGHT;
+        return UNKNOWN_WEIGHT;
 
     }
 
@@ -186,25 +186,25 @@ void classWeight::setMaxWeight( float newMaxWeight ) {
 //////////////////////////////////////////////////////////////////////////////////////
 float classWeight::fromKilogramToPound( float kilogram ) noexcept {
 
-    return kilogram / ::KILOS_IN_A_POUND ;
+    return kilogram / KILOS_IN_A_POUND ;
 
 }
 
 float classWeight::fromPoundToKilogram( float pound ) noexcept {
 
-    return pound * ::KILOS_IN_A_POUND ;
+    return pound * KILOS_IN_A_POUND ;
 
 }
 
 float classWeight::fromSlugToPound( float slug ) noexcept {
 
-    return slug / ::SLUGS_IN_A_POUND ;
+    return slug / SLUGS_IN_A_POUND ;
 
 }
 
 float classWeight::fromPoundToSlug( float pound ) noexcept {
 
-    return pound * ::SLUGS_IN_A_POUND ;
+    return pound * SLUGS_IN_A_POUND ;
 
 }
 
@@ -346,6 +346,16 @@ bool classWeight::operator<(const classWeight &rhs_Weight) const {
 
 classWeight &classWeight::operator+=(float rhs_addToWeight) {
 
+}
+
+std::ostream& operator<<( ostream& lhs_stream ,const classWeight::UnitOfWeight rhs_UnitOfWeight ) {
+    switch( rhs_UnitOfWeight ) {
+        case classWeight::POUND : return lhs_stream << classWeight::POUND_LABEL ;
+        case classWeight::KILO  : return lhs_stream << classWeight::KILO_LABEL  ;
+        case classWeight::SLUG  : return lhs_stream << classWeight::SLUG_LABEL  ;
+        default:
+            throw out_of_range( "The unit can’t be mapped to a string" );
+    }
 }
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// Operators ///////////////////////////////////////

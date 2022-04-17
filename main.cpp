@@ -11,9 +11,20 @@
 
 #include "classWeight.h"
 
+#define NL cout << endl;
+
+
 int main() {
 
-    std::cout << "Hello, World!" << std::endl;
+    cout << "----- Starting Program Fat Cat -----" << endl;
+    NL
+
+    classWeight defaultWeight;
+    defaultWeight.print();
+
+    NL
+    cout << "------ Ending Program Fat Cat ------" << endl;
+
     return 0;
 
 }
