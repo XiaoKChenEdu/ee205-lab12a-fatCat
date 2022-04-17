@@ -12,7 +12,7 @@
 
 #pragma once
 
-
+void checkConstructor();
 void checkEqualityOperator();
 void checkLessThanOperator();
 void checkAddToOperator();

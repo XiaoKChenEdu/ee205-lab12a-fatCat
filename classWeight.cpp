@@ -308,7 +308,7 @@ bool classWeight::validate() const noexcept {
     return true;
 
 }
-#define FORMAT_LINE( className, member ) cout << setw( 30 ) << ( className ) << setw( 30 ) << ( member ) << setw( 52 )
+#define FORMAT_PRINT_LINE( className, member ) cout << setw( 30 ) << ( className ) << setw( 30 ) << ( member ) << setw( 52 )
 
 void classWeight::print() const noexcept {
 
@@ -319,12 +319,32 @@ void classWeight::print() const noexcept {
     cout << left ;
     cout << boolalpha ;
 
-    FORMAT_LINE( "classWeight", "this"           )  << this            << endl ;
-    FORMAT_LINE( "classWeight", "bWeightIsKnown" )  << bWeightIsKnown  << endl ;
-    FORMAT_LINE( "classWeight", "weight"         )  << weight          << endl ;
-    FORMAT_LINE( "classWeight", "unitOfWeight"   )  << unitOfWeight    << endl ;
-    FORMAT_LINE( "classWeight", "bWeightHasMax"  )  << bWeightHasMax   << endl ;
-    FORMAT_LINE( "classWeight", "maxWeight"      )  << maxWeight       << endl ;
+    FORMAT_PRINT_LINE("classWeight", "this"           ) << this << endl ;
+    FORMAT_PRINT_LINE("classWeight", "bWeightIsKnown" ) << bWeightIsKnown << endl ;
+    FORMAT_PRINT_LINE("classWeight", "weight"         ) << weight << endl ;
+    FORMAT_PRINT_LINE("classWeight", "unitOfWeight"   ) << unitOfWeight << endl ;
+    FORMAT_PRINT_LINE("classWeight", "bWeightHasMax"  ) << bWeightHasMax << endl ;
+    FORMAT_PRINT_LINE("classWeight", "maxWeight"      ) << maxWeight << endl ;
+
+}
+
+#define FORMAT_DEBUG_PRINT_LINE( className, member ) cout << "    " << setw( 30 ) << ( className ) << setw( 30 ) << ( member ) << setw( 52 )
+
+void classWeight::debugPrint() const noexcept {
+
+    assert( validate() ) ;
+
+    cout << "    " << setw( 80 ) << setfill( '=' ) << "" << endl ;
+    cout << setfill( ' ' ) ;
+    cout << left ;
+    cout << boolalpha ;
+
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "this"           ) << this << endl ;
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "bWeightIsKnown" ) << bWeightIsKnown << endl ;
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "weight"         ) << weight << endl ;
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "unitOfWeight"   ) << unitOfWeight << endl ;
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "bWeightHasMax"  ) << bWeightHasMax << endl ;
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "maxWeight"      ) << maxWeight << endl ;
 
 }
 //////////////////////////////////////////////////////////////////////////////////////

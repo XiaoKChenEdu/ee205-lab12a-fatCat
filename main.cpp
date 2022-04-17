@@ -31,6 +31,8 @@ int main() {
         cout << "---- Debugging Starts Here ----" << endl;
         NL
 
+        checkConstructor();
+        NL NL
         checkEqualityOperator() ;
         NL NL
         checkLessThanOperator() ;

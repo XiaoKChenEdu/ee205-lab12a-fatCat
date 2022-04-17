@@ -51,17 +51,22 @@ class classWeight {
 
     public:
         //////////// Constructors ////////////
-        classWeight();
+        classWeight();                                          //Constructor 1
 
-        classWeight( float        newWeight        )          ;
-        classWeight( UnitOfWeight newUnitOfWeight  ) noexcept ;
-        classWeight( float        newWeight,
+        classWeight( float        newWeight        )          ; //Constructor 2
+
+        classWeight( UnitOfWeight newUnitOfWeight  ) noexcept ; //Constructor 3
+
+        classWeight( float        newWeight,                    //Constructor 4
                      UnitOfWeight newUnitOfWeight  )          ;
-        classWeight( float        newWeight,
+
+        classWeight( float        newWeight,                    //Constructor 5
                      float        newMaxWeight     )          ;
-        classWeight( UnitOfWeight newUnitOfWeight,
+
+        classWeight( UnitOfWeight newUnitOfWeight,              //Constructor 6
                      float        newMaxWeight     )          ;
-        classWeight( float        newWeight,
+
+        classWeight( float        newWeight,                    //Constructor 7
                      UnitOfWeight newUnitOfWeight,
                      float        newMaxWeight     )          ;
         //////////// Constructors ////////////
@@ -105,7 +110,8 @@ class classWeight {
         bool isWeightValid ( float checkWeight ) const noexcept ;
         bool validate      ()                    const noexcept ;
 
-        void print() const noexcept ;
+        void print      () const noexcept ;
+        void debugPrint () const noexcept ;
         //////////// Validation & Print ////////////
 
     public:
