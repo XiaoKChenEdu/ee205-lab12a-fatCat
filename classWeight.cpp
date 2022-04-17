@@ -336,19 +336,29 @@ void classWeight::print() const noexcept {
 //////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// Operators ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
-bool classWeight::operator==(const classWeight &rhs_Weight) const {
-    return false;
+bool classWeight::operator==( const classWeight &rhs_WeightInput ) const {
+
+    float lhs_weight = ( bWeightIsKnown                 ) ?                 getWeight( classWeight::POUND ) : 0 ;
+    float rhs_weight = ( rhs_WeightInput.bWeightIsKnown ) ? rhs_WeightInput.getWeight( classWeight::POUND ) : 0 ;
+
+    return lhs_weight == rhs_weight;
+
 }
 
-bool classWeight::operator<(const classWeight &rhs_Weight) const {
-    return false;
+bool classWeight::operator<( const classWeight &rhs_WeightInput ) const {
+
+    float lhs_weight = ( bWeightIsKnown                 ) ?                 getWeight( classWeight::POUND ) : 0 ;
+    float rhs_weight = ( rhs_WeightInput.bWeightIsKnown ) ? rhs_WeightInput.getWeight( classWeight::POUND ) : 0 ;
+
+    return lhs_weight < rhs_weight;
+
 }
 
 classWeight &classWeight::operator+=(float rhs_addToWeight) {
 
 }
 
-std::ostream& operator<<( ostream& lhs_stream ,const classWeight::UnitOfWeight rhs_UnitOfWeight ) {
+std::ostream& operator<<( ostream &lhs_stream, const classWeight::UnitOfWeight rhs_UnitOfWeight ) {
     switch( rhs_UnitOfWeight ) {
         case classWeight::POUND : return lhs_stream << classWeight::POUND_LABEL ;
         case classWeight::KILO  : return lhs_stream << classWeight::KILO_LABEL  ;
