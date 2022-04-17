@@ -19,7 +19,7 @@ void checkConstructor() {
 
     ///Test for the first constructor ///
     classWeight testConstructor1;
-    cout << " @classWeight testConstructor1;"          << endl ;
+    cout << " @classWeight testConstructor1;" << endl ;
         testConstructor1.debugPrint();
     ///Test for the first constructor ///
 
@@ -31,22 +31,32 @@ void checkConstructor() {
 
     ///Test for the third constructor ///
     classWeight testConstructor3( classWeight::KILO ) ;
+    cout << " @classWeight testConstructor3( classWeight::KILO ) ;" << endl ;
+        testConstructor3.debugPrint();
     ///Test for the third constructor ///
 
     ///Test for the four constructor ///
     classWeight testConstructor4( 10.0, classWeight::SLUG ) ;
+    cout << " @classWeight testConstructor4( 10.0, classWeight::SLUG ) ;" << endl ;
+        testConstructor4.debugPrint();
     ///Test for the four constructor ///
 
     ///Test for the fifth constructor ///
     classWeight testConstructor5( 10.0, 100.0 ) ;
+    cout << " @classWeight testConstructor5( 10.0, 100.0 ) ;" << endl ;
+        testConstructor5.debugPrint();
     ///Test for the fifth constructor ///
 
     ///Test for the sixth constructor ///
-    classWeight testConstructor6( classWeight::KILO, 100.0 );
+    classWeight testConstructor6( classWeight::KILO, 100.0 ) ;
+    cout << " @classWeight testConstructor6( classWeight::KILO, 100.0 ) ;" << endl ;
+        testConstructor6.debugPrint();
     ///Test for the sixth constructor ///
 
     ///Test for the seventh constructor ///
-    classWeight testConstructor7( 10.0, classWeight::SLUG, 100.0 );
+    classWeight testConstructor7( 10.0, classWeight::SLUG, 100.0 ) ;
+    cout << " @classWeight testConstructor7( 10.0, classWeight::SLUG, 100.0 ) ;" << endl ;
+        testConstructor7.debugPrint();
     ///Test for the seventh constructor ///
 
 }

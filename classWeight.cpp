@@ -66,7 +66,7 @@ classWeight::classWeight( classWeight::UnitOfWeight newUnitOfWeight, float newMa
 
 classWeight::classWeight( float newWeight, classWeight::UnitOfWeight newUnitOfWeight, float newMaxWeight ) : classWeight( newUnitOfWeight, newMaxWeight ) {
 
-    setWeight( newWeight );
+    setWeight( newWeight, newUnitOfWeight );
     assert( validate() );
 
 }
@@ -238,7 +238,7 @@ float classWeight::convertWeight( float fromWeight, classWeight::UnitOfWeight fr
         case KILO  : convertedWeight = fromPoundToKilogram( weightToConvert ) ;
         break;
 
-        case SLUG  : convertedWeight = fromSlugToPound( weightToConvert ) ;
+        case SLUG  : convertedWeight = fromPoundToSlug( weightToConvert ) ;
         break;
 
         default    : cout << "Please enter a proper unit to convert to." << endl ;
