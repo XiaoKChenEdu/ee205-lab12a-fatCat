@@ -14,6 +14,7 @@
 
 void checkConstructor();
 void checkGetters();
+void checkSetters();
 void checkEqualityOperator();
 void checkLessThanOperator();
 void checkAddToOperator();

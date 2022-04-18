@@ -35,6 +35,8 @@ int main() {
         NL NL
         checkGetters();
         NL NL
+        checkSetters();
+        NL NL
         checkEqualityOperator() ;
         NL NL
         checkLessThanOperator() ;

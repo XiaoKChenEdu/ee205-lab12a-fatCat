@@ -115,6 +115,72 @@ void checkGetters() {
 
 
 
+/// Checking Setters ///
+void checkSetters() {
+
+    classWeight defaultWeight;
+
+    /// Fails ///
+    try {
+
+        defaultWeight.setWeight( -1 ) ;
+        cout << " @defaultWeight.setWeight( -1 ) ;" << endl ;
+        cout << "    SUCCEED"                       << endl ;
+
+    } catch ( const exception &Error ) {
+
+        cout << " @defaultWeight.setWeight( -1 ) ;" << endl ;
+        cout << "    " << Error.what()              << endl ;
+
+    }
+
+    try {
+
+        defaultWeight.setWeight( -1, classWeight::KILO ) ;
+        cout << " @defaultWeight.setWeight( -1, classWeight::KILO ) ;" << endl ;
+        cout << "    SUCCEED"                       << endl ;
+
+    } catch ( const exception &Error ) {
+
+        cout << " @defaultWeight.setWeight( -1, classWeight::KILO ) ;" << endl ;
+        cout << "    " << Error.what()              << endl ;
+
+    }
+    /// Fails ///
+
+    /// Succeeds ///
+    try {
+
+        defaultWeight.setWeight( 1 ) ;
+        cout << " @defaultWeight.setWeight( 1 ) ;" << endl ;
+        cout << "    SUCCEED"                      << endl ;
+
+    } catch ( const exception &Error ) {
+
+        cout << " @defaultWeight.setWeight( 1 ) ;" << endl ;
+        cout << "    " << Error.what()             << endl ;
+
+    }
+
+    try {
+
+        defaultWeight.setWeight( 1, classWeight::KILO ) ;
+        cout << " @defaultWeight.setWeight( 1, classWeight::KILO ) ;" << endl ;
+        cout << "    SUCCEED"                                         << endl ;
+
+    } catch ( const exception &Error ) {
+
+        cout << " @defaultWeight.setWeight( 1, classWeight::KILO ) ;" << endl ;
+        cout << "    " << Error.what()                                << endl ;
+
+    }
+    /// Succeeds ///
+
+}
+/// Checking Setters ///
+
+
+
 /// Checking Equality Operator ///
 void checkEqualityOperator() {
 
