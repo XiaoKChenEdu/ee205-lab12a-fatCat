@@ -319,12 +319,12 @@ void classWeight::print() const noexcept {
     cout << left ;
     cout << boolalpha ;
 
-    FORMAT_PRINT_LINE("classWeight", "this"           ) << this << endl ;
+    FORMAT_PRINT_LINE("classWeight", "this"           ) << this           << endl ;
     FORMAT_PRINT_LINE("classWeight", "bWeightIsKnown" ) << bWeightIsKnown << endl ;
-    FORMAT_PRINT_LINE("classWeight", "weight"         ) << weight << endl ;
-    FORMAT_PRINT_LINE("classWeight", "unitOfWeight"   ) << unitOfWeight << endl ;
-    FORMAT_PRINT_LINE("classWeight", "bWeightHasMax"  ) << bWeightHasMax << endl ;
-    FORMAT_PRINT_LINE("classWeight", "maxWeight"      ) << maxWeight << endl ;
+    FORMAT_PRINT_LINE("classWeight", "weight"         ) << weight         << endl ;
+    FORMAT_PRINT_LINE("classWeight", "unitOfWeight"   ) << unitOfWeight   << endl ;
+    FORMAT_PRINT_LINE("classWeight", "bWeightHasMax"  ) << bWeightHasMax  << endl ;
+    FORMAT_PRINT_LINE("classWeight", "maxWeight"      ) << maxWeight      << endl ;
 
 }
 
@@ -339,12 +339,12 @@ void classWeight::debugPrint() const noexcept {
     cout << left ;
     cout << boolalpha ;
 
-    FORMAT_DEBUG_PRINT_LINE("classWeight", "this"           ) << this << endl ;
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "this"           ) << this           << endl ;
     FORMAT_DEBUG_PRINT_LINE("classWeight", "bWeightIsKnown" ) << bWeightIsKnown << endl ;
-    FORMAT_DEBUG_PRINT_LINE("classWeight", "weight"         ) << weight << endl ;
-    FORMAT_DEBUG_PRINT_LINE("classWeight", "unitOfWeight"   ) << unitOfWeight << endl ;
-    FORMAT_DEBUG_PRINT_LINE("classWeight", "bWeightHasMax"  ) << bWeightHasMax << endl ;
-    FORMAT_DEBUG_PRINT_LINE("classWeight", "maxWeight"      ) << maxWeight << endl ;
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "weight"         ) << weight         << endl ;
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "unitOfWeight"   ) << unitOfWeight   << endl ;
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "bWeightHasMax"  ) << bWeightHasMax  << endl ;
+    FORMAT_DEBUG_PRINT_LINE("classWeight", "maxWeight"      ) << maxWeight      << endl ;
 
 }
 //////////////////////////////////////////////////////////////////////////////////////
@@ -399,12 +399,17 @@ classWeight &classWeight::operator+=( float rhs_addToWeight ) {
 }
 
 std::ostream& operator<<( ostream &lhs_stream, const classWeight::UnitOfWeight rhs_UnitOfWeight ) {
+
     switch( rhs_UnitOfWeight ) {
+
         case classWeight::POUND : return lhs_stream << classWeight::POUND_LABEL ;
+
         case classWeight::KILO  : return lhs_stream << classWeight::KILO_LABEL  ;
+
         case classWeight::SLUG  : return lhs_stream << classWeight::SLUG_LABEL  ;
-        default:
-            throw out_of_range( "The unit can’t be mapped to a string" );
+
+        default                 : throw out_of_range( "The unit can’t be mapped to a string" ) ;
+
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////

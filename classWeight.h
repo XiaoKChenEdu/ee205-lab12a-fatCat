@@ -73,8 +73,8 @@ class classWeight {
 
     public:
         //////////// Getters ////////////
-        bool isWeightKnown() const noexcept ;
-        bool hasMaxWeight () const noexcept ;
+        bool isWeightKnown () const noexcept ;
+        bool hasMaxWeight  () const noexcept ;
 
         float getWeight    ()                           const noexcept ;
         float getWeight    ( UnitOfWeight weightUnits ) const noexcept ;
