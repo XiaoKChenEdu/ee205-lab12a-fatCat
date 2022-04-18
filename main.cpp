@@ -33,6 +33,8 @@ int main() {
 
         checkConstructor();
         NL NL
+        checkGetters();
+        NL NL
         checkEqualityOperator() ;
         NL NL
         checkLessThanOperator() ;

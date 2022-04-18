@@ -64,6 +64,57 @@ void checkConstructor() {
 
 
 
+/// Checking Getters ///
+void checkGetters() {
+
+    classWeight unknownWeight ;
+    classWeight knownWeight( 10.0, classWeight::KILO, 100.0 ) ;
+
+    /// False and -1 ///
+    cout << " @unknownWeight.isWeightKnown()"       << endl ;
+    cout << "    " << unknownWeight.isWeightKnown() << endl ;
+
+    cout << " @unknownWeight.hasMaxWeight()"        << endl ;
+    cout << "    " << unknownWeight.hasMaxWeight()  << endl ;
+
+    cout << " @unknownWeight.getWeight()"           << endl ;
+    cout << "    " << unknownWeight.getWeight()     << endl ;
+
+    cout << " @unknownWeight.unknownWeight.getWeight( classWeight::KILO )"   << endl ;
+    cout << "    " << unknownWeight.getWeight( classWeight::KILO ) << endl ;
+
+    cout << " @unknownWeight.getMaxWeight()"        << endl ;
+    cout << "    " << unknownWeight.getMaxWeight()  << endl ;
+
+    cout << " @unknownWeight.getWeightUnit()"       << endl ;
+    cout << "    " << unknownWeight.getWeightUnit() << endl ;
+    /// False and -1 ///
+
+    /// True ///
+    cout << " @knownWeight.isWeightKnown()"       << endl ;
+    cout << "    " << knownWeight.isWeightKnown() << endl ;
+
+    cout << " @knownWeight.hasMaxWeight()"        << endl ;
+    cout << "    " << knownWeight.hasMaxWeight()  << endl ;
+
+    cout << " @knownWeight.getWeight()"           << endl ;
+    cout << "    " << knownWeight.getWeight()     << endl ;
+
+    cout << " @knownWeight.unknownWeight.getWeight( classWeight::SLUG )"   << endl ;
+    cout << "    " << knownWeight.getWeight( classWeight::SLUG ) << endl ;
+
+    cout << " @knownWeight.getMaxWeight()"        << endl ;
+    cout << "    " << knownWeight.getMaxWeight()  << endl ;
+
+    cout << " @knownWeight.getWeightUnit()"       << endl ;
+    cout << "    " << knownWeight.getWeightUnit() << endl ;
+    /// True ///
+
+}
+/// Checking Getters ///
+
+
+
 /// Checking Equality Operator ///
 void checkEqualityOperator() {
 

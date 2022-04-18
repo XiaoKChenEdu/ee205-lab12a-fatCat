@@ -13,6 +13,7 @@
 #pragma once
 
 void checkConstructor();
+void checkGetters();
 void checkEqualityOperator();
 void checkLessThanOperator();
 void checkAddToOperator();
