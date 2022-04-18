@@ -13,7 +13,7 @@
 #include "classWeight.h"
 #include "debug.h"
 
-#define DEBUG
+//#define DEBUG
 
 
 int main() {

@@ -12,9 +12,10 @@
 
 #pragma once
 
-void checkConstructor();
-void checkGetters();
-void checkSetters();
-void checkEqualityOperator();
-void checkLessThanOperator();
-void checkAddToOperator();
+
+void checkConstructor      () ;
+void checkGetters          () ;
+void checkSetters          () ;
+void checkEqualityOperator () ;
+void checkLessThanOperator () ;
+void checkAddToOperator    () ;
